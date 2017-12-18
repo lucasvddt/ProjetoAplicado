@@ -1,0 +1,40 @@
+<content-header name="Investimentos" small="Cadastro"></content-header>
+
+<section class="content" ng-controller="investimentoCtrl">
+  <div class="row">
+    <div class="col-xs-6">
+      <h4> Informe o valor a ser investido </h4>
+      <td>
+        <input  class="form-control" ng-model="valor" placeholder="Valor"
+          ng-readonly="tabDelete"  type="number" />
+      </td>
+    </div>
+    <div class="col-xs-6">
+      <h4> Informe a quantidade de meses</h4>
+      <td>
+        <input  class="form-control" ng-model="meses" placeholder="Meses"
+          ng-readonly="tabDelete"  type="number" />
+      </td>
+    </div>
+    <div class="col-xs-12">
+      <button class="btn btn-success" ng-click="calcular()">Calcular</button>
+    </div>
+    <div class="col-xs-4">
+      <h3>Poupança</h3>
+    </div>
+    <div class="col-xs-4">
+      <h3>CDB</h3>
+    </div>
+    <div class="col-xs-4">
+      <h3>Tesouro Direto</h3>
+    </div>
+   <value-box grid="4" color-class="bg-blue" icon-class="fa fa-line-chart"
+      value="R$ {{ valorPoupanca | number : 2 }}" text="Cálculo do rendimento na Poupança"></value-box>
+    <value-box grid="4" color-class="bg-purple" icon-class="fa fa-line-chart"
+        value="R$ {{ valorCdb | number : 2 }}" text="Cálculo do rendimento na CDB"></value-box>
+    <value-box grid="4" color-class="bg-orange" icon-class="fa fa-line-chart"
+         value="R$ {{ valorSelic | number : 2}}" text="Cálculo do rendimento no Tesouro Direto"></value-box>
+  </div>
+<div google-chart chart="myChartObject" style="height:600px; width:100%;"></div>
+
+</section>
